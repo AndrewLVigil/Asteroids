@@ -3,6 +3,8 @@ import pygame
 
 # This imports the module for the constants
 from constants import *
+from player import *
+from circleshape import *
 
 def main():
     #initializes pygame
@@ -20,6 +22,10 @@ def main():
     #sets screen using pygame display set mode
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    #Instantiates player object
+    player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2), PLAYER_RADIUS)
+
+
     #update method
     while(pygame.get_init()):
         #makes background
@@ -29,6 +35,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        
+        #draws player on screen
+        player.draw(screen)
 
         #ticks clock
         dt = clock.tick(60) / 1000
