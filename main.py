@@ -38,7 +38,7 @@ def main():
         
         #draws player on screen
         player.draw(screen)
-
+        player.update(dt)
         #ticks clock
         dt = clock.tick(60) / 1000
         
