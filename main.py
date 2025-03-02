@@ -14,6 +14,11 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    #groups
+    updateable_group = pygame.sprite.Group()
+    drawable_group = pygame.sprite.Group()
+    Player.containers = (updateable_group, drawable_group)
+
     #basic prints to check run
     print("Starting Asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
@@ -37,8 +42,10 @@ def main():
                 return
         
         #draws player on screen
-        player.draw(screen)
-        player.update(dt)
+        for thing in drawable_group:
+            thing.draw(screen)
+        updateable_group.update(dt)
+        
         #ticks clock
         dt = clock.tick(60) / 1000
         
