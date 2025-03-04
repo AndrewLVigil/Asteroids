@@ -39,7 +39,7 @@ def main():
     #update method
     while(pygame.get_init()):
 
-        updateable_group.update(dt)
+        
         #makes background
         screen.fill("black")
 
@@ -52,7 +52,7 @@ def main():
         for thing in drawable_group:
             thing.draw(screen)
         
-        
+        updateable_group.update(dt)
         #detects collision
         for asteroid in asteroids_group:
             if asteroid.collision(player):
